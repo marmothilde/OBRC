@@ -34,7 +34,7 @@ public class CalculManager {
 		if (measurement != null) {
 			measurement.addValue(Double.parseDouble(value[1]));
 		} else {
-			map.put(value[0], new Measurement(value[0], Double.parseDouble(value[1])));
+			map.put(value[0], new Measurement(Double.parseDouble(value[1])));
 		}
 
 	}
@@ -50,17 +50,16 @@ public class CalculManager {
 		List<String> sortedKeys = new ArrayList<String>(map.keySet());
 
 		Collections.sort(sortedKeys);
-		System.out.println("trié!");
 
 		// Display the TreeMap which is naturally sorted
 		for (int i = 0; i < sortedKeys.size(); i++) {
 			Measurement mesure = map.get(sortedKeys.get(i));
 			if (i == 0) {
-				System.out.print("{" + mesure.toString() + ",");
+				System.out.print("{" + sortedKeys.get(i) + "=" + mesure.toString() + ",");
 			} else if (i == sortedKeys.size() - 1) {
-				System.out.print(mesure.toString() + "}");
+				System.out.print(sortedKeys.get(i) + "=" + mesure.toString() + "}\n");
 			} else {
-				System.out.print(mesure.toString() + ",");
+				System.out.print(sortedKeys.get(i) + "=" + mesure.toString() + ",");
 			}
 
 		}

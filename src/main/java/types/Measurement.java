@@ -2,8 +2,6 @@ package types;
 
 public class Measurement {
 
-	private String stationName;
-
 	private double min;
 
 	private double max;
@@ -14,8 +12,7 @@ public class Measurement {
 
 	private int nbElement;
 
-	public Measurement(String stationname, double value) {
-		this.stationName = stationname;
+	public Measurement(double value) {
 		this.min = value;
 		this.max = value;
 		this.sum = value;
@@ -34,15 +31,7 @@ public class Measurement {
 	}
 
 	public String toString() {
-		return this.stationName + "=" + this.min + "/" + this.average + "/" + this.max;
-	}
-
-	public String getStationName() {
-		return stationName;
-	}
-
-	public void setStationName(String stationName) {
-		this.stationName = stationName;
+		return this.min + "/" + this.average + "/" + this.max;
 	}
 
 	public double getMin() {
