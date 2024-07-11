@@ -2,24 +2,24 @@ package types;
 
 public class Measurement {
 
-	private double min;
+	private int min;
 
-	private double max;
+	private int max;
 
-	private double average;
+	private int average;
 
-	private double sum;
+	private int sum;
 
 	private int nbElement;
 
-	public Measurement(double value) {
+	public Measurement(int value) {
 		this.min = value;
 		this.max = value;
 		this.sum = value;
 		this.nbElement = 1;
 	}
 
-	public void addValue(double value) {
+	public void addValue(int value) {
 		this.sum = this.sum + value;
 		this.nbElement++;
 
@@ -30,39 +30,40 @@ public class Measurement {
 
 	}
 
+	@Override
 	public String toString() {
-		return this.min + "/" + this.average + "/" + this.max;
+		return this.min / 10 + "/" + this.average / 10 + "/" + this.max / 10;
 	}
 
-	public double getMin() {
+	public int getMin() {
 		return min;
 	}
 
-	public void setMin(double min) {
+	public void setMin(int min) {
 		this.min = min;
 	}
 
-	public double getMax() {
+	public int getMax() {
 		return max;
 	}
 
-	public void setMax(double max) {
+	public void setMax(int max) {
 		this.max = max;
 	}
 
-	public double getAverage() {
+	public int getAverage() {
 		return average;
 	}
 
-	public void setAverage(double average) {
+	public void setAverage(int average) {
 		this.average = average;
 	}
 
-	public double getSum() {
+	public int getSum() {
 		return sum;
 	}
 
-	public void setSum(double sum) {
+	public void setSum(int sum) {
 		this.sum = sum;
 	}
 

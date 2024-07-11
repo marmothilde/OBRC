@@ -20,7 +20,7 @@ public class CalculManager {
 
 		String current = "";
 		while ((current = reader.readLine()) != null) {
-			addValue(current.split(";"));
+			addValue(parseLine(current));
 		}
 
 		computeAverage();
@@ -29,12 +29,12 @@ public class CalculManager {
 
 	}
 
-	private static void addValue(String[] value) {
+	private static void addValue(Object[] value) {
 		Measurement measurement = map.get(value[0]);
 		if (measurement != null) {
-			measurement.addValue(Double.parseDouble(value[1]));
+			measurement.addValue((int) value[1]);
 		} else {
-			map.put(value[0], new Measurement(Double.parseDouble(value[1])));
+			map.put((String) value[0], new Measurement((int) value[1]));
 		}
 
 	}
@@ -51,7 +51,6 @@ public class CalculManager {
 
 		Collections.sort(sortedKeys);
 
-		// Display the TreeMap which is naturally sorted
 		for (int i = 0; i < sortedKeys.size(); i++) {
 			Measurement mesure = map.get(sortedKeys.get(i));
 			if (i == 0) {
@@ -65,4 +64,15 @@ public class CalculManager {
 		}
 	}
 
+	public static Object[] parseLine(String line) {
+		int index = line.indexOf(';');
+		String stationName = line.substring(0, index);
+		int y = parseTemp(line.substring(index + 1));
+		return new Object[] { stationName, y };
+	}
+
+	private static int parseTemp(String temp) {
+		int index = temp.indexOf('.');
+		return (Integer.parseInt(temp.substring(0, index)) * 10) + Integer.parseInt(temp.substring(index + 1));
+	}
 }
