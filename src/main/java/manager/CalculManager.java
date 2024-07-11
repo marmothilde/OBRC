@@ -54,11 +54,11 @@ public class CalculManager {
 		for (int i = 0; i < sortedKeys.size(); i++) {
 			Measurement mesure = map.get(sortedKeys.get(i));
 			if (i == 0) {
-				System.out.print("{" + sortedKeys.get(i) + "=" + mesure.toString() + ",");
+				System.out.print("{" + sortedKeys.get(i) + "=" + mesure.toString() + ", ");
 			} else if (i == sortedKeys.size() - 1) {
 				System.out.print(sortedKeys.get(i) + "=" + mesure.toString() + "}\n");
 			} else {
-				System.out.print(sortedKeys.get(i) + "=" + mesure.toString() + ",");
+				System.out.print(sortedKeys.get(i) + "=" + mesure.toString() + ", ");
 			}
 
 		}

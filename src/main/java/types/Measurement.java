@@ -32,7 +32,7 @@ public class Measurement {
 
 	@Override
 	public String toString() {
-		return this.min / 10 + "/" + this.average / 10 + "/" + this.max / 10;
+		return this.min / 10.0 + "/" + this.average / 10.0 + "/" + this.max / 10.0;
 	}
 
 	public int getMin() {
