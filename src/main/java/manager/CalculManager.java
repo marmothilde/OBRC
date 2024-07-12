@@ -73,6 +73,10 @@ public class CalculManager {
 
 	private static int parseTemp(String temp) {
 		int index = temp.indexOf('.');
-		return (Integer.parseInt(temp.substring(0, index)) * 10) + Integer.parseInt(temp.substring(index + 1));
+
+		return (temp.charAt(0) == '-')
+				? (Integer.parseInt(temp.substring(0, index)) * 10) - Integer.parseInt(temp.substring(index + 1))
+				: (Integer.parseInt(temp.substring(0, index)) * 10) + Integer.parseInt(temp.substring(index + 1));
+
 	}
 }
