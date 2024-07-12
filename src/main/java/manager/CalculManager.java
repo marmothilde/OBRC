@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import types.Measurement;
 
@@ -22,11 +21,7 @@ public class CalculManager {
 		while ((current = reader.readLine()) != null) {
 			addValue(parseLine(current));
 		}
-
-		computeAverage();
-
 		printSorted();
-
 	}
 
 	private static void addValue(Object[] value) {
@@ -37,13 +32,6 @@ public class CalculManager {
 			map.put((String) value[0], new Measurement((int) value[1]));
 		}
 
-	}
-
-	private static void computeAverage() {
-		for (Map.Entry<String, Measurement> entry : map.entrySet()) {
-
-			entry.getValue().setAverage(entry.getValue().getSum() / entry.getValue().getNbElement());
-		}
 	}
 
 	public static void printSorted() {
